@@ -1,0 +1,23 @@
+'''
+python manage.py shell
+from app.models import Author,Book,Publisher
+create objects
+***
+author1 = Author.objects.create(name="Bertrand_Russell")
+--author1
+<Author: Bertrand_Russell>
+***
+book1 = Book.objects.create(name='Religion and Science',author=author1)
+--book1
+<Book: Religion and Science>
+--book1.author
+<Author: Bertrand_Russell>
+book2 = Book.objects.create(name='Religion and Science',author=author1,tagline='Science')
+***
+publisher1 = Publisher.objects.create(name='Oxford University Press')
+# Mtm(add)
+publisher1.book.add(book1)
+--publisher1.name
+'Oxford University Press'
+
+

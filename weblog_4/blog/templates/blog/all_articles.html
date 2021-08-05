@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<!-- css -->
+{% load static %}
+{% block custom_tags %}
+<link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% for article in all_articles %}
+   
+   <div class="card" style="width: 18rem;display: inline-block;"> 
+      <div class="card-body" >
+        <!-- url id -->
+        
+        <h5 class="card-title"><a href="{% url 'blog:article_detail' article.id %}" class="btn btn-primary"><h5>show with id:</h4>{{article.title}}</a></h5>
+
+         <!-- url slug -->
+        <h5 class="card-title"><a href="{% url 'blog:article_detail' article.slug %}" class="btn btn-primary"><h5>show with slug</h4>{{article.title}}</a></h5>
+        
+        <!--get_absolute_url and slug   -->
+        <h5 class="card-title"><a href="{{ article.get_absolute_url }}" class="btn btn-primary"><h5>show with id $slug</h4>{{article.title}}</a></h5>
+
+        <p class="card-text">{{article.body}}</p>
+      </div>
+   </div> 
+
+    {% endfor %}
+{% endblock %}

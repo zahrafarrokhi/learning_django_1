@@ -1,0 +1,57 @@
+
+1-virtualenv
+
+python -m venv venv
+--windows 
+.\venv\scripts\activate
+--linux
+source venv/bin/activate
+2-
+pip insatll django
+#proj
+djano-admin startproject Todoproj .
+#app
+python manage.py startapp todo
+settings=>Intalled app
+
+3-mvt
+4-model(fields - behaviors)
+python manage.py makemigrations
+python manage.py migrate
+python manage.py showmigrations
+
+5-admin
+python  manage.py createsuperuser
+admin.site.register(Todo)
+showing objects with def __str__ in models
+def __str__(self) :
+	return self.title
+
+6-urls
+--urls project import include
+--urls app
+
+7-templates
+settings=>'DIRS': [BASE_DIR / 'templates'],
+base.html(extending template)-navbar.html
+render() for function ,from django.shortcuts import render
+bootstrap
+tags=>for-if-url in {% %} / alltodo.html 
+variables=> in {}        /  todo.html
+
+
+8-queries
+--all
+todos = Todo.objects.all() => templates(for loop)
+--get
+urls.py:path('detail/<int:id>',views.detail_todo,name='detail')
+views.py:todo = get_object_or_404(Todo,id=id)
+
+9-point in alltodo.html (name for each urls)
+<a href="{% url 'detail' todo.id %}"
+
+
+
+
+
+

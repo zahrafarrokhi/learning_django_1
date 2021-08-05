@@ -1,0 +1,25 @@
+python manage.py shell
+from app.models import Blog,Author,Entry
+b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
+b.save()
+b 
+<Blog: Beatles Blog>
+b.name
+'Beatles Blog'
+Blog.objects.all()
+**********
+joe = Author.objects.create(name="Joe")
+entry =Entry.objects.create(blog=b,pub_date='2006-01-01',headline="hello every body")
+#add(Mtm)
+entry.authors.add(joe)
+Entry.objects.all()
+def __str__ => self.headline
+
+
+john = Author.objects.create(name="John")
+paul = Author.objects.create(name="Paul")
+george = Author.objects.create(name="George")
+ringo = Author.objects.create(name="Ringo")
+Author.objects.all()
+#add(MTM)
+entry.authors.add(john, paul, george, ringo)

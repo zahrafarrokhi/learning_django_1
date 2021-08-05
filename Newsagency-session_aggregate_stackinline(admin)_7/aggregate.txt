@@ -1,0 +1,4 @@
+from django.db.models import Min,Max,Sum,Avarage
+#seen_num with session
+Article.objects.aggregate(Max('seen_num')
+#result is dictionary

@@ -1,0 +1,35 @@
+***(Author to Book) Author ==> Book(has fk for Author ,has related_query_name='writer')
+1-
+ Author.objects.filter(writer__name='Religion and Science')
+ <QuerySet [<Author: Bertrand_Russell>
+2-
+ Author.objects.filter(writer__tagline='Science') 
+ <QuerySet [<Author: Bertrand_Russell>]>
+
+***(Author to Publisher )
+3-
+ Author.objects.filter(writer__publisher__name='Oxford University Press')
+ <QuerySet [<Author: Bertrand_Russell>]>
+4-
+ Author.objects.filter(writer__publisher__name__contains='Press')
+ <QuerySet [<Author: Bertrand_Russell>]>
+
+****(Publisher to Author)
+5-
+ Publisher.objects.filter(book__author__name='Bertrand_Russell')
+ <QuerySet [<Publisher: Oxford University Press>]>
+****(Publisher to Book)
+6-
+ Publisher.objects.filter(book__name='Religion and Science')
+ <QuerySet [<Publisher: Oxford University Press>]>
+
+
+***(Book to Author)
+7-
+ Book.objects.filter(author__name='Bertrand_Russell')
+ <QuerySet [<Book: Religion and Science>]>
+
+****(Book to Puplisher)
+8-
+ Book.objects.filter(publisher__name='Oxford University Press')
+ <QuerySet [<Book: Religion and Science>]>

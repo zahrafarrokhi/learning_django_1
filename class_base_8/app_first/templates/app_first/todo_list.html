@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <div class="container">
+         <div class="row ">
+          <br>
+          <br>
+         </div>
+         <h3><strong>Create New Todo</strong> </h3><hr/>
+         <a href="{% url 'app_first:create_todo'  %}" class="btn btn-danger">createTodo</a>
+         <br><br>
+        <h3><strong>list with mix pk & slug</strong> </h3><hr/>
+        
+        {% for todo in object_list %}
+        <a href="{% url 'app_first:detail' todo.id todo.slug %}">{{todo.title}}</a> 
+        <a href="{% url 'app_first:delete_todo' todo.id %}" class="btn btn-danger">Delete</a>       
+        <a href="{% url 'app_first:update_todo' todo.id %}" class="btn btn-warning">Update</a> <br><hr>
+        {% endfor %}
+        <hr>
+     </div>
+    
+    
+    
+
+{% endblock %}

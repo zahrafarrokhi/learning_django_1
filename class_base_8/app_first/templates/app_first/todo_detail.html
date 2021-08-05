@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5"> 
+        <hr/>   
+        <h5>Descripton Task:</h3>
+        <h5>{{object.title}}</h5>
+        <h6>{{object.created}}</h6>
+        <br>
+        <hr/>
+     <h3>Comment</h3>
+    
+   <form action=""method='post'>
+       {% csrf_token %}       
+       {{form.as_table}}      
+        <input type="submit" value="send">
+   </form>
+   <br>
+   <h3>Comment List</h3><hr/>
+   {% for cmt in object.tcomments.all %}
+        {{cmt.name}}
+        <br>
+        {{cmt.body}}
+        <hr>
+
+   {% endfor %}
+    </div>
+{% endblock %}

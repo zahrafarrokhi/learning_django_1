@@ -1,0 +1,8 @@
+from app.models import Author,Book,Publisher
+author1 = Author.objects.create(name="Bertrand_Russell")
+book1 = Book.objects.create(name='Religion and Science',author=author1)
+
+**relation between publisher & book (mtm)
+publisher1 = Publisher.objects.create(name='Oxford University Press')
+# Mtm(add)
+publisher1.book.add(book1)

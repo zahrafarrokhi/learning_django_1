@@ -1,0 +1,41 @@
+Entry.objects.filter(pub_date__year=2006)
+Entry.objects.filter(pub_date__lte='2006-01-01')
+q1 = Entry.objects.filter(headline__startswith="hello")
+<QuerySet [<Entry: hello every body>]>
+
+Entry.objects.order_by('headline')[0]
+Entry.objects.order_by('headline')[0:1].get()
+
+#Chaining filters**
+import datetime
+Entry.objects.filter(headline__startswith='hello').exclude(pub_date__gte=datetime.date.today()).filter(
+	pub_date__gte=datetime.date(2005, 1, 30))
+
+#Field lookups****(QuerySet methods filter(), exclude() and get().)
+#filter
+Entry.objects.filter(pub_date__lte='2006-01-01')
+
+#exact(An “exact” match.)*
+Entry.objects.get(headline__exact="hello every body")
+
+#iexact*
+Blog.objects.get(name__iexact="hello every body")
+
+#contains*
+Entry.objects.get(headline__contains='every')
+
+Lookups that span relationships**********
+(Entry ====> blog ) 
+Entry has blog field Does not need related_query_name
+Entry.objects.filter(blog__name='Beatles Blog')
+
+#point***************
+#blog=>related_query_name='item'****
+(blog ====> Entry) 
+1-
+Blog.objects.filter(item__headline__contains='hello')
+2-
+Blog.objects.filter(entry__authors__name='Lennon')
+Cannot resolve keyword 'entry' into field. Choices are: id, item, name, tagline =>item
+3-
+Blog.objects.filter(item__authors__name='john')

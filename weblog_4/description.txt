@@ -1,0 +1,32 @@
+namespace
+--app_name (app url)
+-- namespace(project url)
+
+blog app:
+
+models**
+*models field(Article)
+---slug:overide method save-admin=> prepopulated_fields = {'slug':('title',)}
+---publish:timezone => from django.utils import timezone
+---created:auto_now_add=True
+---updated:auto_now=True
+
+*def get_absolute_url(self)
+*PublishedArticlesManager(models.Manager)
+
+user app:
+
+--forms.py =>cleand_data,widget,attr
+--views.py(login-register(signup)-logout)
+--messages
+*dosent exist repeat email
+--clean_email(in forms.py)
+*passwords must be macth
+1-clean_password2
+2-clean
+
+customizing admin pannel
+--admin.py
+
+staticfiles & mediafiles
+

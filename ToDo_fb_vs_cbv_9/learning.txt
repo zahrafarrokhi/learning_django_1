@@ -1,0 +1,3 @@
+https://www.codesnail.com/todo-app-in-django-part-6-django-static-files-form-fields-styling-template/
+
+https://www.webforefront.com/django/formfieldtypesandvalidation.html

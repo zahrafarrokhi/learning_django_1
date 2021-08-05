@@ -1,0 +1,19 @@
+b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
+b.save()
+joe = Author.objects.create(name="Joe")
+entry =Entry.objects.create(blog=b,pub_date='2006-01-01',headline="hello every body")
+entry.blog
+Entry.objects.all() 
+****************
+#add
+entry.authors.add(joe)
+john = Author.objects.create(name="John")
+paul = Author.objects.create(name="Paul")
+george = Author.objects.create(name="George")
+ringo = Author.objects.create(name="Ringo")
+#add
+entry.authors.add(john, paul, george, ringo)
+
+#all
+
+all_entries = Entry.objects.all()

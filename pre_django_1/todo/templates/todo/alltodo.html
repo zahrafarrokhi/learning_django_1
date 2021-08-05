@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{%block content %}
+    {% for todo in todos %}
+    <!-- {{todos}} -->
+    <!-- <QuerySet [<Todo: buy some cheese>]> -->
+   <div class="card" style="width: 18rem;display: inline-block;"> 
+      <div class="card-body" >
+
+        <h5 class="card-title"><a href="{% url 'detail' todo.id %}" class="btn btn-primary">{{todo.title}}</a></h5>
+        <p class="card-text">{{todo.body}}</p>
+      </div>
+   </div> 
+<!-- <a href="{% url 'detail' todo.id %}"><li>{{todo.title}}</li></a> -->
+    {% endfor %}
+{% endblock %}

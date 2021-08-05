@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block custom_tags %}
+<link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h3>{{ article.title |upper }}</h3>
+    <small>{{ article.published|time:"H:i"  }}</small><hr/>
+    <h5>{{ article.published|time:"H\h i\m" }}</h5><hr/>
+    <small>"TIME_FORMAT" </small>
+    <small>{{ article.published|time:"TIME_FORMAT"  }}</small><hr/>
+    <h5>{{ article.published|timesince }}</h5><hr/>
+    <h6>{{ article.published|timeuntil }}</h6><hr/>
+    <p>{{ article.body|safe }}</p>
+{% endblock %}

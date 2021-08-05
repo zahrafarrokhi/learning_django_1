@@ -1,0 +1,20 @@
+# enter date in admin 
+# python manage.py shell
+# from news.models import Article, Author, User, 
+# ****
+# Article.objects.all()
+# QuerySet [<Article: برنامه نویس وب>]>
+# *****
+# Article.objects.filter(id=1)
+# <QuerySet [<Article: برنامه نویس وب>]>
+# **********
+# Article.objects.filter(question_text__startswith='برنامه')
+# ************
+#  Author.objects.get(id=2)
+# DoesNotExist: Question matching query does not exist.
+# **************
+# User.objects.get(pk=1)
+# <User: zahra>
+# q = User.objects.get(pk=1)
+# q.was_published_recently()
+# **********

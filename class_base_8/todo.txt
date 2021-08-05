@@ -1,0 +1,56 @@
+app_first
+(CRUD with class base)
+*localhost/list
+**BaseView
+-View => from django.views import View 
+-TemplateView => from django.views.generic.base import TemplateView
+
+**GenericView
+--ListView =>from django.views.generic.list import ListView or from django.views.generic
+--DetailView =>from django.views.generic.detail import DetailView or from django.views.generic
+  DetailView with pk ,slug
+
+--FormView =>from django.views.generic.edit or from django.views.generic
+  form_class = TodoCreateForm(you need forms.py)
+  success_url = reverse_lazy('app_first:list'),  reverse_lazy => from django.urls import reverse_lazy
+  def form_valid(self,form)
+  def create_todo (self,data):
+      todo = Todo(title =data['title'],slug=slugify(data['title'])) ,slugify => django.utils.text
+  meesage => from django.contrib
+  
+--CreateView => from django.views.generic.edit or from django.views.generic
+  (you dont need forms.py => django Handle by fields = ['title'] auto save title in db )
+  but slug  save in for_valid mehod
+
+--DeleteTodo => from django.views.generic.edit or from django.views.generic
+
+--UpdateTodo => from django.views.generic.edit or from django.views.generic
+  Django creates the form, there is no need to build by fields 
+  fields = ('title',)
+
+user  app 
+*localhost/user/login
+
+login
+--urls
+--login.html
+--settings =>LOGIN_REDIRECT_URL = 'app_first:list'
+--views
+--navbar 
+
+logout 
+--urls 
+--settings 
+--navbar
+
+resetpass
+--settings(gmail smtp)
+--passwordresetview (views:UserPassReset-urls-html(password_reset_form.html-password_reset_email.html))
+--PasswordResetDone(views-urls-html(reset_done.html))
+--PasswordResetConfirm(views-urls(<uidb64>/<token>)-html(form-validlink))
+--PasswordResetComplete(views-urls-html)
+
+loginrequiredmixin
+formmixin
+
+
