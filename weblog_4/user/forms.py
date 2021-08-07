@@ -7,12 +7,16 @@ class UserLogin(forms.Form):
     password = forms .CharField(max_length=30,widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'please enter your password'}))
 
 
+messages = {
+	'required':'این فیلد اجباری است',
+	'invalid':'لطفا یک ایمیل معتبر وارد کنید',
+	'max_length':'تعداد کاراکترها بیشتر از حد مجاز است'}
 
 class UserRegister(forms.Form):
-    username = forms.CharField(max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'enter your name'}))
-    email = forms.EmailField(max_length=30,widget=forms.EmailInput(attrs={'class':'form-control','placeholder':'enter your email'}))
-    password1 = forms.CharField(label='password',max_length=30,widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'enter your password'}))
-    password2 = forms.CharField(label='confirmpassword',max_length=30,widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'enter your password'}))
+    username = forms.CharField(error_messages=messages,max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'enter your name'}))
+    email = forms.EmailField(error_messages=messages,max_length=30,widget=forms.EmailInput(attrs={'class':'form-control','placeholder':'enter your email'}))
+    password1 = forms.CharField(error_messages=messages,label='password',max_length=30,widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'enter your password'}))
+    password2 = forms.CharField(error_messages=messages,label='confirmpassword',max_length=30,widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'enter your password'}))
 
 
     def clean_email(self):
