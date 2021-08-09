@@ -6,7 +6,6 @@ class UserLogin(forms.Form):
     username = forms.CharField(max_length=30,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'please enter your name'}))
     password = forms .CharField(max_length=30,widget=forms.PasswordInput(attrs={'class':'form-control','placeholder':'please enter your password'}))
 
-
 messages = {
 	'required':'این فیلد اجباری است',
 	'invalid':'لطفا یک ایمیل معتبر وارد کنید',
